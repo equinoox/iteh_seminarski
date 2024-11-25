@@ -6,9 +6,10 @@ import { fetchWrapper } from "./fetchWrapper";
 import { createClient } from "graphql-ws";
 
 // BASE URL
-export const API_BASE_URL = 'https://api.crs.refine.dev'
+export const API_BASE_URL = 'https://api.crm.refine.dev'
 // URL GraphQL API-a koji uzimamo od REFINE
-export const API_URL = 'https://api.crm.refine.dev';
+// Promenio sam API_URL EndPoint, da ne bude isti kao Base API
+export const API_URL = `${API_BASE_URL}/graphql`;
 // URL WebSocket-a koji uzimamo od REFINE 
 export const WS_URL = 'wss://api.crm.refine.dev/graphql';
 
@@ -18,6 +19,7 @@ export const client = new GraphQLClient(API_URL, {
     fetch: (url:string, options: RequestInit) => {
         try {
             // fetchWrapper je u fajlu fetchWrapper.ts
+            // BUG
             return fetchWrapper(url, options);
         } catch (error) {
             return Promise.reject(error as Error);

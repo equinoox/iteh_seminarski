@@ -4,14 +4,15 @@ import { API_URL, dataProvider } from "./data";
 
 // Za testiranje Autentikacije, koristimo ovaj email i sifru
 export const adminAuth = {
-  email: "admin@gmail.com",
-  password: "admin",
+  email: "michael.scott@dundermifflin.com",
+  password: "demodemo",
 };
 
 export const authProvider: AuthBindings = {
   login: async ({ email }) => {
     try {
       // dataProvider.custom koristimo za custom request ka REFINE API-u
+      // BUG
       const { data } = await dataProvider.custom({
         url: API_URL,
         method: "post",

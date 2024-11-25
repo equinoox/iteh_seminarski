@@ -1,11 +1,13 @@
 import { AuthPage } from "@refinedev/antd";
+import { adminAuth } from "../../providers";
 
 export const Login = () => {
   return (
     <AuthPage
       type="login"
       formProps={{
-        initialValues: { email: "demo@refine.dev", password: "demodemo" },
+        // Uzimamo Emial i Lozinku koje smo  napravili radi lakseg testiranja
+        initialValues: adminAuth,
       }}
     />
   );
